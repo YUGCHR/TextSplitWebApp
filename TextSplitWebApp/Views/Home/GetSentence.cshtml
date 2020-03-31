@@ -1,0 +1,66 @@
+﻿@model TextSplitWebApp.Models.Sentence
+
+@{
+    ViewBag.Title = "GetSentence";
+}
+
+<h2>GetSentence</h2>
+
+
+
+@if (Model == null)
+{
+    @Html.Label("Sentence ID is NULL")
+}
+else
+{
+    @Html.Label("Sentence ID = ")
+    @Html.DisplayFor(s => s.ID)
+    <br />
+    @Html.Label("ID of Language = ")
+    @Html.DisplayFor(s => s.LanguageID)
+    <br />
+    @Html.Label("ID of Chapter = ")
+    @Html.DisplayFor(s => s.ChapterID)
+    <br />
+    @Html.Label("ID of Paragraph = ")
+    @Html.DisplayFor(s => s.ParagraphID)
+    <br />
+    @Html.Label("Sentence Number = ")
+    @Html.DisplayFor(s => s.SentenceNumber)
+    <br />
+    @Html.Label("Sentence Name = ")
+    @Html.DisplayFor(s => s.SentenceName)
+    <br />
+    <br />
+}
+
+@*@using (Html.BeginForm("Index", "Home", FormMethod.Post))
+    {
+        <br />
+        @Html.Label("Return to select number of Sentence")
+        <br />
+        <input type="submit" value="Return" />
+        <br />
+        @Html.Button("color", "red")
+        <br />
+    }*@
+
+@using (Html.BeginForm("MyAction", "Home", FormMethod.Post))
+{
+    <br />
+    <button name="action" value="toUpload">Upload</button>
+    @Html.Label("Upload TextBook file to Split")
+    <br />
+    <br />
+}
+
+<footer class="panel-footer">
+    @using (Html.BeginForm("MyAction", "Home", FormMethod.Post))
+    {
+        <br />
+        <button name="action" value="toReturn">Return</button>
+        @Html.Label("Return to Main Menu")
+        <br />
+    }
+</footer>

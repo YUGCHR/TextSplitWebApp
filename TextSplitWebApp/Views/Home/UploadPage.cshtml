@@ -1,0 +1,54 @@
+﻿@model TextSplitWebApp.Models.BookFile
+
+@{
+    ViewBag.Title = "UploadPage";
+}
+
+    <style>
+        h2 {
+            color: aqua;
+            background-color: aquamarine;
+        }
+
+        textarea {
+            color:aqua;
+            background-color:aquamarine;
+            max-width: 550px;
+        }
+    </style>
+
+<h2>UploadPage</h2>
+
+@if (@Model == null)
+{
+    <br />
+    @Html.Label("BookFileContent is NULL")
+    <br />
+    @Html.TextArea("text", "пусто-пусто", 5, 50, null)
+}
+else
+{
+    <br />
+    @Html.Label("English BookFileContent")
+    <br />
+    @Html.TextArea("text", @Model.BookFileContent, 35, 350, null) @Html.Label(" | ") @Html.TextArea("text", @Model.BookFileContent, 35, 250, null)
+}
+
+@using (Html.BeginForm("UploadFileSelect", "Home", FormMethod.Post))
+{
+    <br />
+    <button name="action" value="uploadEnglish">Upload</button>
+    @Html.Label("Upload TextBook file to Split")
+    <br />
+    <br />
+}
+
+<footer class="panel-footer">
+    @using (Html.BeginForm("UploadFileSelect", "Home", FormMethod.Post))
+    {
+        <br />
+        <button name="action" value="toReturn">Return</button>
+        @Html.Label("Return to Main Menu")
+        <br />
+    }
+</footer>
